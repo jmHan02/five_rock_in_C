@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdbool.h>
+#include <unistd.h>
 
 int main(){
     int x=0;
@@ -14,8 +15,9 @@ int main(){
         }        
     }
 
-    while(true){
-    printf("\033[H\033[2J");
+    while(true){    
+    
+    printf("\033[2J\033[3J\033[H");
     fflush(stdout);
     
     turn = !turn;
@@ -28,6 +30,7 @@ int main(){
         printf("\n");
     }
     printf("좌표를 입력하세요: ");
+    
     scanf("%d %d",&x, &y);
     board[x][y]= turn ? 'O' : 'X';
 
