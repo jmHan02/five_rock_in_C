@@ -6,7 +6,7 @@ int main(){
     int x=0;
     int y=0;
     char board[19][19];
-    bool turn = false;
+    bool turn = true;
 
     //보드 초기화
     for(int i=0;i<19; i++){
@@ -20,7 +20,7 @@ int main(){
     printf("\033[2J\033[3J\033[H");
     fflush(stdout);
     
-    turn = !turn;
+    
     
     
     for(int i=0;i<19; i++){
@@ -32,7 +32,14 @@ int main(){
     printf("좌표를 입력하세요: ");
     
     scanf("%d %d",&x, &y);
-    board[x][y]= turn ? 'O' : 'X';
+    if(board[x][y]==32){
+        board[x][y]= turn ? 'O' : 'X';
+        turn = !turn;
+    }
+    else{
+        continue;
+    }
+    
 
 
 }
